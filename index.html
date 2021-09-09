@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sequence Updater (Version 2.0)</title>
+    <meta name="description"
+          content="Helper to modify genomic sequences">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+    integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47"
+    crossorigin="anonymous">
+
+<link rel="stylesheet" href="css/sequence_updater-min.css">
+  </head>
+  <body class="yui3-skin-sam">
+    <div id="hd" class="page-header">
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="logo-container">
+            <img src="images/GEP_logo.png" alt="GEP Logo" class="logo"/>
+            <div class="title">Sequence Updater</div>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="release_info">Version 2.0</div>
+        </div>
+      </div>
+    </div>
+    <div id="bd" class="page-body">
+      <div id="sequpdater-status"></div>
+
+      <div id="selectRegion-section" class="module">
+        <p>Use the interface below to specify the list of changes you would like
+          to apply to a genomic sequence.
+        </p>
+
+        <form id="selectRegion-form"
+              class="pure-form pure-form-stacked">
+          <fieldset>
+            <legend>Select project</legend>
+
+            <div class="form-item">
+              <label for="selectRegion-speciesField">Species Name
+                <span id="selectRegion-speciesField-validate" class="validation"></span>
+              </label>
+              <select id="selectRegion-speciesField">
+                <option value="_unselected_" selected>Select a species</option>
+<option value="D. melanogaster">D. melanogaster</option>
+<option value="D. simulans">D. simulans</option>
+<option value="D. sechellia">D. sechellia</option>
+<option value="D. yakuba">D. yakuba</option>
+<option value="D. erecta">D. erecta</option>
+<option value="D. eugracilis">D. eugracilis</option>
+<option value="D. biarmipes">D. biarmipes</option>
+<option value="D. suzukii">D. suzukii</option>
+<option value="D. takahashii">D. takahashii</option>
+<option value="D. ficusphila">D. ficusphila</option>
+<option value="D. rhopaloa">D. rhopaloa</option>
+<option value="D. elegans">D. elegans</option>
+<option value="D. kikkawai">D. kikkawai</option>
+<option value="D. serrata">D. serrata</option>
+<option value="D. ananassae">D. ananassae</option>
+<option value="D. bipectinata">D. bipectinata</option>
+<option value="D. pseudoobscura">D. pseudoobscura</option>
+<option value="D. persimilis">D. persimilis</option>
+<option value="D. miranda">D. miranda</option>
+<option value="D. obscura">D. obscura</option>
+<option value="D. willistoni">D. willistoni</option>
+<option value="D. arizonae">D. arizonae</option>
+<option value="D. mojavensis">D. mojavensis</option>
+<option value="D. navojoa">D. navojoa</option>
+<option value="D. hydei">D. hydei</option>
+<option value="D. virilis">D. virilis</option>
+<option value="D. grimshawi">D. grimshawi</option>
+<option value="D. busckii">D. busckii</option>              </select>
+            </div>
+
+            <div id="regionDetailsFormFields" class="hidden">
+              <div class="form-item">
+                <label for="selectRegion-regionField">Genome Assembly
+                  <span id="selectRegion-regionField-validate" class="validation"></span>
+                </label>
+                <select id="selectRegion-regionField">
+                  <option value="dm6">D. melanogaster - Aug. 2014 (BDGP Release 6 + ISO1 MT/dm6)</option>
+<option value="DsimGB2">D. simulans - May 2017 (Princeton University ASM75419v2/DsimGB2)</option>
+<option value="DsecCAF1">D. sechellia - May 2011 (Broad dsec_caf1/DsecCAF1)</option>
+<option value="DyakCAF1">D. yakuba - May 2011 (WUGSC dyak_caf1/DyakCAF1)</option>
+<option value="Dere2">D. erecta - Aug. 2006 (GEP/Dot)</option>
+<option value="Dere3">D. erecta - Apr. 2007 (GEP/3L control)</option>
+<option value="Dere4">D. erecta - Jan. 2008 (GEP/3L extended)</option>
+<option value="Dere6">D. erecta - Nov. 2011 (GEP/2nd 3L Control)</option>
+<option value="DereCAF1">D. erecta - May 2011 (Agencourt dere_caf1/DereCAF1)</option>
+<option value="DeugGB2">D. eugracilis - Apr. 2013 (BCM-HGSC/Deug_2.0)</option>
+<option value="Deug1">D. eugracilis - Jan. 2017 (GEP/Dot)</option>
+<option value="Deug2">D. eugracilis - Aug. 2017 (GEP/3L Control)</option>
+<option value="Dbia2">D. biarmipes - Aug. 2012 (GEP/Dot)</option>
+<option value="DbiaGB2">D. biarmipes - Apr. 2013 (BCM-HGSC/Dbia_2.0)</option>
+<option value="Dbia3">D. biarmipes - Aug. 2013 (GEP/Dot)</option>
+<option value="Dbia4">D. biarmipes - Jan. 2014 (GEP/3L Control)</option>
+<option value="DsuzGB1">D. suzukii - Sep. 2013 (BGI/Dsuz_1.0)</option>
+<option value="DtakGB2">D. takahashii - Apr. 2013 (BCM-HGSC/Dtak_2.0)</option>
+<option value="Dtak1">D. takahashii - Jan. 2018 (GEP/Dot)</option>
+<option value="Dtak2">D. takahashii - Aug. 2018 (GEP/3L Control)</option>
+<option value="DficGB2">D. ficusphila - Apr. 2013 (BCM-HGSC/Dfic_2.0)</option>
+<option value="Dfic1">D. ficusphila - Jan. 2016 (GEP/Dot)</option>
+<option value="Dfic2">D. ficusphila - Aug. 2016 (GEP/3L Control)</option>
+<option value="DrhoGB2">D. rhopaloa - Apr. 2013 (BCM-HGSC/Drho_2.0)</option>
+<option value="DeleGB2">D. elegans - Apr. 2013 (BCM-HGSC/Dele_2.0)</option>
+<option value="Dele1">D. elegans - Jan. 2015 (GEP/Dot)</option>
+<option value="Dele2">D. elegans - Aug. 2015 (GEP/3L Control)</option>
+<option value="DkikGB2">D. kikkawai - Apr. 2013 (BCM-HGSC/Dkik_2.0)</option>
+<option value="DserGB1">D. serrata - Apr. 2017 (University of Queensland Dser1.0/DserGB1)</option>
+<option value="DanaCAF1">D. ananassae - May 2011 (Agencourt dana_caf1/DanaCAF1)</option>
+<option value="DanaRS2">D. ananassae - Oct. 2018 (AGI/DanaRS2)</option>
+<option value="DanaPB1">D. ananassae - Sep. 2019 (GEP/Muller F Element)</option>
+<option value="DanaPB2">D. ananassae - Mar. 2020 (GEP/Muller D Element)</option>
+<option value="DbipGB2">D. bipectinata - Apr. 2013 (BCM-HGSC/Dbip_2.0)</option>
+<option value="DbipPB1">D. bipectinata - Jan. 2021 (GEP/Muller F)</option>
+<option value="DbipPB2">D. bipectinata - Aug. 2021 (GEP/Muller D)</option>
+<option value="DpseGB3">D. pseudoobscura - Apr. 2013 (BCM-HGSC Dpse_3.0/DpseGB3)</option>
+<option value="DperCAF1">D. persimilis - May 2011 (Broad dper_caf1/DperCAF1)</option>
+<option value="DmirGB2">D. miranda - Apr. 2013 (UC Berkeley DroMir_2.2/DmirGB2)</option>
+<option value="DobsGB1">D. obscura - July 2017 (NIG Dobs_1.0/DobsGB1)</option>
+<option value="DwilCAF1">D. willistoni - May 2011 (JCVI dwil_caf1/DwilCAF1)</option>
+<option value="DariGB1">D. arizonae - June 2016 (UNAM ASM165402v1/DariGB1)</option>
+<option value="Dmoj4">D. mojavensis - Sep. 2008 (GEP/Dot)</option>
+<option value="Dmoj5">D. mojavensis - Apr. 2011 (GEP/3L Reference)</option>
+<option value="DmojCAF1">D. mojavensis - May 2011 (Agencourt dmoj_caf1/DmojCAF1)</option>
+<option value="DnavGB1">D. navojoa - June 2016 (UNAM ASM165401v1/DnavGB1)</option>
+<option value="DhydGB1">D. hydei - Nov. 2017 (UC Davis ASM278046v1/DhydGB1)</option>
+<option value="drosample">D. virilis - Mar. 2005 (GEP/Annot. D. virilis ppt)</option>
+<option value="Dvir3">D. virilis - Mar. 2006 (GEP/Practice problems)</option>
+<option value="DvirCAF1">D. virilis - Sep. 2011 (Agencourt dvir_caf1/DvirCAF1)</option>
+<option value="Dgri3">D. grimshawi - Mar. 2009 (GEP/Simple Annot. Problem)</option>
+<option value="Dgri5">D. grimshawi - Sep. 2010 (GEP/Dot)</option>
+<option value="DgriCAF1">D. grimshawi - May 2011 (Agencourt dgri_caf1/DgriCAF1)</option>
+<option value="DbusGB1">D. busckii - Sep. 2015 (UC Berkeley ASM127793v1/DbusGB1)</option>                </select>
+              </div>
+            </div>
+
+            <div id="projectDetailsFormFields" class="hidden">
+              <div class="form-item" id="selectRegion-projectName-field">
+                <div id="selectRegion-projectField-ac">
+                  <label for="selectRegion-projectField">Scaffold Name
+                    <span id="selectRegion-projectField-validate" class="validation"></span>
+                  </label>
+                  <input id="selectRegion-projectField" type="text" required>
+                </div>
+              </div>
+
+              <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary">Select</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="changelist-section"></div>
+      <div id="download-section"></div>
+    </div>
+
+    <div id='ft' class="page-footer">
+      | <a href="https://thegep.org">GEP Home Page</a> |
+        <a href="https://community.gep.wustl.edu/repository/documentations/Sequence_Updater_User_Guide.pdf">User Guide</a> |      
+    </div>
+
+    <script type="text/x-template" id="download-template">
+      <div class="module">
+        <h1>Download Results</h1>
+        <p>Right click on the link below and select "Save Link As..." or
+          "Download Linked File As..." to save the VCF file.</p>
+        <ul>
+          <li><a target="_blank" href="{vcffile}" download>VCF file</a></li>
+        </ul>
+      </div>
+
+      <a class="pure-button pure-button-primary" href="index.html">Update another sequence</a>
+    </script>
+
+    <script type="text/x-template" id="changeSequence-template">
+      <div id="changeSequence-section" class="module">
+        <h1>Sequence changes for <b>{project}</b> in the {assembly} assembly</h1>
+        <p>Specify changes in
+          <a target="_blank" href="http://samtools.github.io/hts-specs/VCFv4.1.pdf">Variant Call Format (VCF)</a>:
+        </p>
+        <div class="pure-g">
+          <div class="pure-u-3-5">
+            <form class="pure-form pure-form-stacked"
+                  id="changeSequence-form">
+              <fieldset>
+                <label for="changeSequence-positionField">Start Position</label>
+                <input id="changeSequence-positionField" type="text"
+                       class="pure-input-1"
+                       required
+                       pattern="^\d+$"
+                       title="Starting position of the original genomic sequence to change">
+
+                <label for="changeSequence-originalSequenceField">Original Sequence</label>
+                <input id="changeSequence-originalSequenceField" type="text"
+                       class="pure-input-1"
+                       required
+                       pattern="^[ATGCatgc]+$"
+                       title="Sequence should only contain nucleotides: A, T, G, or C">
+
+                <label for="changeSequence-newSequenceField">New Sequence</label>
+                <input id="changeSequence-newSequenceField"
+                       class="pure-input-1"
+                       required
+                       pattern="^[ATGCatgc]+$"
+                       title="Sequence should only contain nucleotides: A, T, G, or C">
+                </textarea>
+              </fieldset>
+              <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary">Add</button>
+                <a class="pure-button pure-button-small" href="index.html">Reset Form</a>
+              </div>
+            </form>
+          </div>
+          <div class="pure-u-2-5">
+            <div id="changeSequence-surroundSequence-panel"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="changeSequenceList-section" class="module">
+        <h1>List of sequence changes</h1>
+        <ul id="changeSequenceList-list"></ul>
+
+        <button id="changeSequenceList-submit"
+                type="submit"
+                class="pure-button pure-button-primary">Apply Changes</button>
+        <div id="changeSequenceList-status"></div>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="item-template">
+      <span class="changeitem-content" tabindex="0">
+        <b>Position</b>: {position},
+        <b>Original</b>: {originalSequence},
+        <b>New</b>: {newSequence}
+      </span>
+
+      <a href="#" class="changeitem-remove" title="Remove this change">
+        <span class='remove-icon'></span></li>
+      </a>
+    </script>
+
+    <script type="text/x-template" id="message-template">
+      <div class="panel gradient {type}">
+        <div class="pure-g">
+          <div class="pure-u-1-8">
+            <span class='{type}-panel-icon panel-icon'></span>
+          </div>
+          <div class="pure-u-7-8">
+            <p>{message}</p>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="fieldError-template">
+      <div class="error message">
+        <p>{message}</p>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="loading-template">
+      <div class="module">
+        <img class="icon" alt="Loading" src="images/loading.gif">{message}
+      </div>
+    </script>
+
+    <script type="text/x-template" id="surroundSequence-template">
+      <div class="module hint">
+        <p>Sequences surrounding the start position:</p>
+        <dl>
+          <dt>Sequence:</dt>
+          <dd>
+            <span class="surroundbases">{surroundStart}</span><span class="selectedbase">{selectedBase}</span><span class="surroundbases">{surroundEnd}</span>
+          </dd>
+
+          <dt>Position:</dt>
+          <dd>{position}</dd>
+
+          <dt>Region:</dt>
+          <dd>{startPosition}-{endPosition}</dd>
+        </dl>
+      </div>
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/yui/3.18.1/yui/yui-min.js"></script>
+
+<script src="js/ucscdb_info.js"></script>
+<script src="js/sequence_updater-min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,322 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+.page-header,
+.page-footer {
+  padding: 0.5em 1em 0.1em 1em;
+}
+
+.page-header {
+  background-color: #990000;
+  padding: 0.5em 1em;
+  color: #FFF;
+}
+
+.page-footer {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	text-align: center;
+	background-color: #990000;
+	color: #FFF;
+}
+
+.page-footer a {
+    color: #FFF;
+}
+
+.page-body {
+  background-color: white;
+  padding: 1em;
+}
+
+.release_info {
+  margin-top: 0.2em;
+  text-align: right;
+}
+
+.pure-button-small {
+  font-size: 85%;
+  background-color: #BBB;
+}
+
+.message {
+  border: 6px solid #BBB;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+}
+
+.notice {
+  background-color: #cbcbcb;
+}
+
+.pure-form label {
+  color: #3E3F41;
+}
+
+.form-item {
+  margin-bottom: 1.5em;
+}
+
+.gradient {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255,255,255, 0.50)), color-stop(40%, rgba(255,255,255, 0.15)), to(transparent));
+  background-image: -webkit-linear-gradient(rgba(255,255,255, 0.50), rgba(255,255,255, 0.15) 40%, transparent);
+  background-image: -moz-linear-gradient(top, rgba(255,255,255, 0.50), rgba(255,255,255, 0.15) 40%, transparent);
+  background-image: -ms-linear-gradient(rgba(255,255,255, 0.50), rgba(255,255,255, 0.15) 40%, transparent);
+  background-image: -o-linear-gradient(rgba(255,255,255, 0.50), rgba(255,255,255, 0.15) 40%, transparent);
+  background-image: linear-gradient(rgba(255,255,255, 0.50), rgba(255,255,255, 0.15) 40%, transparent);
+}
+
+.module {
+  border-radius: 6px;
+  border: 1px solid #CBCBCB;
+
+  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #DDDDDD 100%); /* Mozilla Firefox */
+  background-image: -o-linear-gradient(top, #FFFFFF 0%, #DDDDDD 100%); /* Opera */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #DDDDDD)); /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #DDDDDD 100%); /* Webkit (Chrome 11+) */
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #DDDDDD 100%); /* W3C Markup, IE10 Release Preview */
+  background-color: #CCC;
+
+  padding: 0 0.3em 0.3em 0.3em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-weight: 300;
+  padding: 0;
+  margin-bottom: 0.3em;
+  font-size: 125%;
+  color: #333333;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.hint {
+  margin: 0 0.5em;
+}
+
+.hint dt {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.hint dd {
+  margin-bottom: 0.3em;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 85%;
+}
+
+.remove-icon {
+  background: url(../images/remove.png) no-repeat;
+  height: 32px;
+  width: 32px;
+  display:inline-block;
+  vertical-align: middle;
+  margin-left: 1em;
+  opacity: 0.5;
+}
+
+.remove-icon:hover {
+  opacity: 1.0;
+}
+
+.panel {
+  border: 2px #CBCBCB solid;
+  border-radius: 3px 3px 3px 3px;
+  display: block;
+  padding: 0.3em 0.5em;
+  margin: 0 20% 20px;
+}
+
+.message {
+  background-color: #b3d4fc;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.error {
+  border: 3px #800 solid;
+  background-color: #AB3232;
+  color: #FFF;
+}
+
+.warn {
+  border: 3px #ffcc33 solid;
+  background-color: #ffa;
+}
+
+.info {
+  border: 3px #06c solid;
+  background-color: #b3d4fc;
+}
+
+.panel-icon {
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+  margin: 10% 0;
+}
+
+.error-panel-icon {
+  background: url(../images/error-icon-panel.png) no-repeat;
+}
+
+.warn-panel-icon {
+  background: url(../images/warn-icon-panel.png) no-repeat;
+}
+
+.info-panel-icon {
+  background: url(../images/info-icon-panel.png) no-repeat;
+}
+
+/* Use word-wrap to allow bases to wrap to the next line */
+.surroundbases {
+  color: #0066CC;
+  word-wrap: break-word;
+}
+
+.selectedbase {
+  color: #AB3232;
+  font-weight: bold;
+  font-size: 153.9%;
+  word-wrap: break-word;
+}
+
+.icon {
+  padding: 0.5em;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  padding-right: 10px;
+}
+
+
+/* ==========================================================================
+   Form styles
+   ========================================================================== */
+.form-field {
+  margin-bottom: 0.5em;
+}
+
+.field_message p {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1;
+}
+
+.hidden {
+  display:none;
+}
